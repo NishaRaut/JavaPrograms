@@ -39,7 +39,7 @@ public class OrderdLIst {
 	  		
 	  		System.out.println("\nEnter any number for checking : ");
 			String word = Utility.getString();
-	       Utility.orderedList(word,no);
+			Utility.orderedList(word,no);
 	  
 	}
 

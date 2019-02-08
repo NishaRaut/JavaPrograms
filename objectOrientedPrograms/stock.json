@@ -1,0 +1,6 @@
+{
+  "stock1":{"stock name":"amazon","Number of shares":15, "shares price":1000},
+  "stock2":{"stock name":"flipkart","Number of shares":20, "shares price":2000},
+  "stock3":{"stock name":"bigbazar","Number of shares":18, "shares price":1500},
+  "stock4":{"stock name":"myntra","Number of shares":25, "shares price":4400}
+}

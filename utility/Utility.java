@@ -1,17 +1,43 @@
 package com.bridgelabz.utility;
 
+import java.io.File;
+
+
+import java.io.FileNotFoundException;
+
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
+import org.codehaus.jackson.JsonGenerationException;
+//import org.codehaus.jackson.map.ObjectMapper;
+//import org.codehaus.*;
+//import org
 import com.bridgelabz.dataMethods.Dequeue;
 import com.bridgelabz.dataMethods.Queue;
 import com.bridgelabz.dataMethods.QueueUsingLinkedList;
+import com.bridgelabz.dataMethods.QueueUsingLinkedListObjectType;
 import com.bridgelabz.dataMethods.Stack;
 import com.bridgelabz.dataMethods.StackUsingLinkedList;
 import com.bridgelabz.dataMethods.singleLinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Utility {
 	static Scanner sc = new Scanner(System.in);
@@ -38,7 +64,7 @@ public class Utility {
 	 * Aim: Flip Coin and print percentage of Heads and Tails
 	 */
 	public void flipCoin() {
-		Scanner sc = new Scanner(System.in);
+
 		double head = 0, tail = 0;
 		// taking input from user that how many times you want to flip the coin
 		System.out.println("Enter the number you have to flip the coin:");
@@ -71,7 +97,7 @@ public class Utility {
 	 * the 29th February. There is a leap year every four years.
 	 */
 	public void leapyr() {
-		Scanner sc = new Scanner(System.in);
+
 		// taking user input i.e year.
 		System.out.println("Enter the year:");
 		int no = sc.nextInt();
@@ -93,7 +119,7 @@ public class Utility {
 	 * Aim: Power of 2
 	 */
 	public static void powersquare() {
-		Scanner sc = new Scanner(System.in);
+
 		// taking the input from user.
 		System.out.println("Enter the number:");
 		int no = sc.nextInt();
@@ -127,7 +153,6 @@ public class Utility {
 
 	public void harmonicNum() {
 
-		Scanner sc = new Scanner(System.in);
 		{
 			System.out.println("Enter the n'th number:");
 			int no = sc.nextInt();
@@ -147,7 +172,7 @@ public class Utility {
 
 	/* Aim: Computes the prime factorization of N using brute force. */
 	public void primeFact() {
-		Scanner sc = new Scanner(System.in);
+
 		{ // to taking user input
 			System.out.println("Enter the number:");
 			int no = sc.nextInt();
@@ -166,7 +191,6 @@ public class Utility {
 
 	/* 7.gambler */
 	public static void gamb() {
-		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter the stake ammount:");
 		int stake = sc.nextInt();
@@ -207,7 +231,6 @@ public class Utility {
 
 	/* 8.ARRAY */
 	public static void arrayPro() {
-		Scanner sc = new Scanner(System.in);
 
 		// taking input from user how many column and rows will be there.
 		System.out.println("Enter the rows and columns:");
@@ -242,7 +265,6 @@ public class Utility {
 
 	/* 9.TRIPPLET */
 	public void tripplet() {
-		Scanner sc = new Scanner(System.in);
 		int count = 0;
 		System.out.println("Enter the value of n:");
 		int n = sc.nextInt();
@@ -273,7 +295,7 @@ public class Utility {
 	 */
 
 	public void distance() {
-		Scanner sc = new Scanner(System.in);
+
 		// co-ordinates for first point is(0,0)
 		int x1 = 0, y1 = 0;
 		System.out.println("Enter the two points:");
@@ -287,7 +309,6 @@ public class Utility {
 
 	/* 11.stopwatch */
 	public static void stopwatchTime() {
-		Scanner sc = new Scanner(System.in);
 
 		long start = 0, stop = 0;
 		boolean a = true;
@@ -317,7 +338,7 @@ public class Utility {
 
 	/* coupen */
 	public static void coupons() {
-		Scanner sc = new Scanner(System.in);
+
 		int count = 0, j = 0, size = 0;
 		System.out.println("Enter the value of n:");
 		int n = sc.nextInt();
@@ -339,7 +360,7 @@ public class Utility {
 			}
 		}
 
-		for (var i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++) {
 			System.out.println("Coupen numbers are:" + arr[i]);
 		}
 	}
@@ -349,7 +370,7 @@ public class Utility {
 	 * b*x + c. Since the equation is x*x, hence there are 2 roots.
 	 */
 	public static void quadratic() {
-		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Enter the value for a:");
 		double a = sc.nextDouble();
 		System.out.println("Enter the value for b:");
@@ -1088,17 +1109,16 @@ public class Utility {
 //			System.out.println(wordList);
 		}
 		System.out.println("\nList of string:");
-		System.out.println("----------"+word);
+		System.out.println("----------" + word);
 
 		wordList.display();
-		
-     
+
 		if (wordList.search2(word)) {
 			System.out.println("This word is alredy in list position so remove it");
 			int index = wordList.getIndex(word);
 			wordList.remove(index);
 			wordList.display();
-			
+
 		} else {
 			System.out.println("This word is not in the list so add it");
 			wordList.add(word);
@@ -1106,32 +1126,32 @@ public class Utility {
 
 		}
 	}
+
 	/************************************************************************/
 	public static void orderedList(String num, String list) throws IOException {
-	String noArray[] = list.split(" ");
-	singleLinkedList<String> noList = new singleLinkedList<String>();
-	for (int i = 0; i < noArray.length; i++) {
-		noList.add(noArray[i]);
+		String noArray[] = list.split(" ");
+		singleLinkedList<String> noList = new singleLinkedList<String>();
+		for (int i = 0; i < noArray.length; i++) {
+			noList.add(noArray[i]);
 		}
-	System.out.println("sorted list of numbers:");
-	//System.out.println("----------"+word);
-     
-	noList.sort();
-	noList.display();
-	if (noList.search2(num)) {
-		System.out.println("This word is alredy in list position so remove it");
-		int index = noList.getIndex(num);
-		noList.remove(index);
-		noList.display();
-		
-	} else {
-		System.out.println("This word is not in the list so add it");
-		noList.add(num);
-		noList.display();
+		System.out.println("sorted list of numbers:");
+		// System.out.println("----------"+word);
 
+		noList.sort();
+		noList.display();
+		if (noList.search2(num)) {
+			System.out.println("This word is alredy in list position so remove it");
+			int index = noList.getIndex(num);
+			noList.remove(index);
+			noList.display();
+
+		} else {
+			System.out.println("This word is not in the list so add it");
+			noList.add(num);
+			noList.display();
+
+		}
 	}
-}
-	
 
 	/*********************************************************************/
 
@@ -1391,4 +1411,332 @@ public class Utility {
 		}
 		return stackLinkedList;
 	}
+
+	// Object Mapper
+	private static ObjectMapper mapper;
+
+	static {
+		mapper = new ObjectMapper();
+	}
+
+	/**
+	 * Purpose: This method helps to convert java to json.
+	 * 
+	 * @param object
+	 * @return String
+	 */
+	public static String convertJavaToJson(Object object) {
+		String jsonResult = " ";
+		try {
+			jsonResult = mapper.writeValueAsString(object);
+		} catch (JsonGenerationException e) {
+			System.out.println("exception ocur wile converting java to json");
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return jsonResult;
+	}
+
+	@JsonDeserialize
+	public static <T> T convertJsonToJava(String jsonString, Class<T> cls) {
+		T result = null;
+
+		try {
+			result = mapper.readValue(jsonString, cls);
+		} catch (JsonGenerationException e) {
+			System.out.println("1exception ocur wile converting json to java  ");
+		} catch (JsonMappingException e) {
+			System.out.println("2exception ocur wile converting json to java  ");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("3exception ocur wile converting json to java  ");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	// q5 to add customer
+	public static void filewrite(String s, String path) throws IOException {
+		FileOutputStream fils = null;
+		// FileOutputStream will throw exception---so surrounding try catch
+
+		try {
+			fils = new FileOutputStream(path);
+
+			// convert string to byte
+			// as FileOutputStream support byte by byte input
+			// so here we convert string to byte and create 1 byte array
+			byte b[] = s.getBytes();
+
+			// now we pass the byte array
+			fils.write(b);
+
+			System.out.println("written successfuly");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			fils.close();
+		}
+
+	}
+
+	public static void regularExpression(String name, String fullname, String contactNo, String date) {
+		Pattern pattern;
+		Matcher matcher;
+		String input = "Hello <<name>>, We have your full name as <<full name>> in our system, your contact number is <<91-xxxxxxxxxx>>,Please,let us know in case of any clarification Thank you BridgeLabz <<21/11/2018>>.";
+
+		pattern = Pattern.compile("<<name>>"); // compiles the given regular expression into pattern
+		matcher = pattern.matcher(input); // Return matcher for given input
+		input = matcher.replaceAll(name); // Replace given string with new string
+
+		pattern = Pattern.compile("<<full name>>");
+		matcher = pattern.matcher(input);
+		input = matcher.replaceAll(fullname);
+
+		pattern = Pattern.compile("<<91-xxxxxxxxxx>>");
+		matcher = pattern.matcher(input);
+		input = matcher.replaceAll(contactNo);
+
+		pattern = Pattern.compile("<<05/02/2019>>");
+		matcher = pattern.matcher(input);
+		input = matcher.replaceAll(date);
+
+		System.out.println(input);// Print Modified output
+
+	}
+
+	
+	/****************************************
+	 * stock account
+	 ***********************************************/
+	public static void createAccount() throws Exception {
+		File file = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/customer.json");
+		if (file.exists()) {
+			//boolean check = true;
+			//while (check == true) {
+				//System.out.println("Want to add user: yes or no");
+				//String ch =nextLine();
+			//if (ch.equals("yes")) {
+			Scanner sc=new Scanner(System.in);
+					FileReader fr = new FileReader(file);
+					JSONParser parser = new JSONParser();// parse json file into java objects
+					JSONArray arr1 = (JSONArray) parser.parse(fr);// JSONArray is order sequence of values
+					JSONObject json = new JSONObject();// creates json object
+					System.out.println("Enter name");
+					String name = sc.nextLine();
+					System.out.println("Enter balance");
+					int bal = getInt();
+					json.put("Name", name);// here passing objects
+					json.put("Balance", bal);
+					json.put("ShareCount", 100);
+					arr1.add(json);// here we pass all objects in array
+					FileWriter fw = new FileWriter(file);
+					fw.write(JSONArray.toJSONString(arr1));
+					fw.flush();
+					fw.close();
+				//} else {
+					//check = false;
+				//}
+			}
+		//} 
+	    //else {
+			//System.out.println("File does not exits");
+		//}
+		// StockAccount();
+	}
+
+	//here user bying share so balance reduce n number of share increses
+	public static void buyShare() throws IOException, ParseException, org.json.simple.parser.ParseException {
+		File file = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/customer.json");
+		File file1 = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/company.json");
+		Scanner sc=new Scanner(System.in);
+		if (file.exists() && file1.exists())
+
+		{
+
+			// reading stock file
+			FileReader fr = new FileReader(file);//give file to read
+			JSONParser parser = new JSONParser();//parse json file into java objects
+			JSONArray stock = (JSONArray) parser.parse(fr);
+
+			// reading share file
+			FileReader sf = new FileReader(file1);
+			JSONParser parser1 = new JSONParser();
+			JSONArray share = (JSONArray) parser1.parse(sf);
+
+			System.out.println("Enter the user");
+			String name = sc.nextLine();
+			Iterator<?> itr = stock.iterator();//iterator for customer json
+			Iterator<?> itr1 = share.iterator();//iterator for company json
+			boolean flag = false;
+			while (itr.hasNext()) { //For comparing user name with stored we have to use the iterate customer.json
+				JSONObject obj = (JSONObject) itr.next();//
+				if (obj.get("Name").equals(name)) {
+					System.out.println("Enter the share sysmbol to buy share:[@,!,#]");
+					String sym =sc.nextLine();
+					/*
+					 * obj.put("Share symbol", sym);
+					 * if(obj.get("Share Symbol").equals(sym)) {
+					 */
+					while (itr1.hasNext()) { //symbol in company json so iterate that
+						JSONObject obj1 = (JSONObject) itr1.next();
+						if (obj1.get("Symbol").equals(sym)) {
+							System.out.println("Enter the amount to Buy share");
+							int amt = getInt();
+							int bal = Integer.parseInt(obj.get("Balance").toString());//taken from customerShare
+							
+							int noShare = Integer.parseInt(obj.get("ShareCount").toString());//taken from customerShare
+
+							int price = Integer.parseInt(obj1.get("Price").toString());//taken from companyStock
+
+							int stockShare = Integer.parseInt(obj1.get("Count").toString());//taken from companyStock
+							
+							int numofshare = amt / price;//amount is divided by Price we get from companyShare
+
+							int newbal = bal - amt;//buying share so new balance reduce n number 
+							int sharecountcus = noShare + numofshare;//sharecount increases of user
+							int sharecountstock = stockShare - numofshare;//n company share count reduced
+
+							obj.remove("Balance");
+							obj.remove("ShareCount");
+							obj1.remove("Count");
+
+							obj.put("Balance", newbal);
+							obj.put("ShareCount", sharecountcus);
+							obj1.put("Count", sharecountstock);
+							Date d = new Date();
+							String date = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a").format(d);
+							System.out.println("Date " + date);
+							flag = true;
+							break;
+						}
+					}
+				}
+				FileWriter fs = new FileWriter(file);
+				fs.write(JSONValue.toJSONString(stock));
+				fs.flush();
+				fs.close();
+			}
+			if (flag == false) {
+				System.out.println("User name not exits");
+			}
+			FileWriter fw = new FileWriter(file1);
+			fw.write(JSONValue.toJSONString(share));
+			fw.flush();
+			fw.close();
+		} else {
+			System.out.println("File does not exits");
+		}
+		//StockAccount();
+	}
+	//here we selling shares so balance increses and number of shares of user decreses and companys count share increses 
+	public static void sellShare() throws IOException, ParseException, org.json.simple.parser.ParseException {
+		File file = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/customer.json");
+		File file1 = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/company.json");
+		Scanner sc=new Scanner(System.in);
+		if (file.exists() && file1.exists()) {
+			// Scanner scan = new Scanner(System.in);
+			// reading stock file
+			FileReader fr = new FileReader(file);
+			JSONParser parser = new JSONParser();
+			JSONArray stock = (JSONArray) parser.parse(fr);
+			// reading share file
+
+			FileReader sf = new FileReader(file1);
+			JSONParser parser1 = new JSONParser();
+			JSONArray share = (JSONArray) parser1.parse(sf);
+
+			System.out.println("Enter the user");
+			String name = sc.nextLine();
+			Iterator<?> itr = stock.iterator();//iterate customerShare.json
+			Iterator<?> itr1 = share.iterator();//iterate companyShare.json
+			boolean flag = false;
+			while (itr.hasNext()) {
+				JSONObject obj = (JSONObject) itr.next();
+				if (obj.get("Name").equals(name)) {
+					System.out.println("Enter the share sysmbol to sale share:[@,!,#]");
+					String sym = sc.nextLine();
+					System.out.println("Enter the number of share to sale");
+					int count = getInt();
+					// obj.put("Share Symbol", sym);
+					while (itr1.hasNext()) {
+						JSONObject obj1 = (JSONObject) itr1.next();
+						if (obj1.get("Symbol").equals(sym)) {//here we checking entered symbol is available or not in CompanyShare
+							int bal = Integer.parseInt(obj.get("Balance").toString());//CustomerShare.json balance taken
+							int price = Integer.parseInt(obj1.get("Price").toString());//Taken from CompanyStock.json
+							int noShare = Integer.parseInt(obj.get("ShareCount").toString());//taken from CustomerShare.json
+							int stockShare = Integer.parseInt(obj1.get("Count").toString());//Taken from CompanyStock.json
+							int saleprize = count * price;//calculating for newbalance
+							int newbal = bal + saleprize;
+							int sharecountscustomer = noShare - count;//after sell sharecount reduced 
+
+							int sharecountstockcompany = stockShare + count;
+							if (sharecountscustomer > 0 && noShare > 0) {
+								obj.remove("Balance"); //remove old values
+								obj.remove("ShareCount");
+								obj1.remove("Count");
+								obj.put("Balance", newbal);//store updated values
+								obj.put("ShareCount", sharecountscustomer);
+								obj1.put("Count", sharecountstockcompany);
+							} else {
+								System.out.println("No Shares Available");
+							}
+							Date d = new Date();
+							String date = new SimpleDateFormat("E yyyy.MM.dd 'at' hh:mm:ss a").format(d);
+							System.out.println("Date " + date);
+							flag = true;
+							break;
+						}
+
+					}
+				}
+
+				FileWriter fs = new FileWriter(file);
+				fs.write(JSONValue.toJSONString(stock));
+				fs.flush();
+				fs.close();
+			}
+			if (flag == false) {
+				System.out.println("User name not exits");
+			}
+			FileWriter fw = new FileWriter(file1);
+			fw.write(JSONValue.toJSONString(share));
+			fw.flush();
+			fw.close();
+		} else {
+			System.out.println("File Does not exits");
+		}
+		//StockAccount();
+	}
+
+	public static void printReport() throws IOException, ParseException, org.json.simple.parser.ParseException {
+
+		File file = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/customer.json");
+
+		if (!file.exists()) {//if file not exists n file having 
+			System.out.println("NO customer is there.");
+		} else {
+			FileReader file1 =new FileReader("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/customer.json");
+			JSONParser parser = new JSONParser();
+			JSONArray shareArray = (JSONArray) parser.parse(file1);
+			Iterator<?> iterator = shareArray.iterator();
+			while (iterator.hasNext()) {
+				JSONObject shareobj = (JSONObject) iterator.next();
+				System.out.println(shareobj);
+			}
+
+		}
+		System.out.println();
+		//StockAccount();
+	}
 }
+	
+	
+		
+
