@@ -13,7 +13,7 @@ public class InventoryManager {
 			
 		
 			// to map json to pojo obj and vice-versa
-			/*ObjectMapper objectMapper = new ObjectMapper();
+			ObjectMapper objectMapper = new ObjectMapper();
 
 			// Reading from a file as json string
 			File file = new File("/home/admin1/eclipse-workspace/nisha/bridgelabz/src/com/bridgelabz/objectOrientedPrograms/InventoryManagement.json");
@@ -66,31 +66,32 @@ public class InventoryManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Input Incorrect");
-		}*/
+		}
 
-	}
+	
 
 	/*
 	 * To take input from user for product properties
 	 * 
 	 * @return is class type of productproperty
 	 */
-//	public static ProductProperty input() {
-//
-//		ProductProperty productProperty = new ProductProperty();
-//
-//		System.out.println("Enter the name of product type ");
-//		String inputPropertyName = Utility.getString();
-//		productProperty.setName(inputPropertyName);
-//		System.out.println("Enter the Weight ");
-//		double inputPropertyWeight = Utility.getDouble();
-//		productProperty.setWeight(inputPropertyWeight);
-//		System.out.println("Enter the Price ");
-//		double inputPropertyprice = Utility.getDouble();
-//		productProperty.setPrice(inputPropertyprice);
-//
-//		return productProperty;
-//
-//	}
+	public static ProductProperty input() {
 
+		ProductProperty productProperty = new ProductProperty();
+
+		System.out.println("Enter the name of product type ");
+		String inputPropertyName = Utility.getString();
+		productProperty.setName(inputPropertyName);
+		System.out.println("Enter the Weight ");
+		double inputPropertyWeight = Utility.getDouble();
+		productProperty.setWeight(inputPropertyWeight);
+		System.out.println("Enter the Price ");
+		double inputPropertyprice = Utility.getDouble();
+		productProperty.setPrice(inputPropertyprice);
+
+		return productProperty;
+
+	}
+		
+}
 }

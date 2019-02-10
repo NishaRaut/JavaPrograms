@@ -1735,6 +1735,17 @@ public class Utility {
 		System.out.println();
 		//StockAccount();
 	}
+	/**
+	 * To find the HashFunction for a number
+	 * @param number is long
+	 * @return is type long
+	 */
+	public static int hashFunction(int num) {
+		int reminder=num%11;
+		return reminder;
+	}
+	
+
 }
 	
 	

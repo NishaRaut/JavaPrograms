@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/jackson-annotations-2.8.11.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/jackson-core-2.8.11.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/jackson-core-asl-1.9.13 (1).jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/jackson-databind-2.8.11.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/jackson-mapper-asl-1.9.13 (1).jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/admin1/Documents/com.fasterxml.jackson.databind.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
